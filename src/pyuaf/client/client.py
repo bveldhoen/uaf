@@ -680,7 +680,7 @@ class Client(ClientBase):
             else:
                 return self.__untrustedCertificateCallback__(certificate, cause)
         except:
-            pass # nothing we can do at this point!
+            return False # nothing we can do at this point!
     
     
     def untrustedServerCertificateReceived(self, certificate, cause):
@@ -800,7 +800,7 @@ class Client(ClientBase):
             else:
                 return self.__connectErrorCallback__(clientConnectionId, connectionStep, sdkStatus, clientSideError)
         except:
-            pass # nothing we can do at this point!
+            return False # nothing we can do at this point!
     
     
     def connectErrorReceived(self, clientConnectionId, connectionStep, sdkStatus, clientSideError):
